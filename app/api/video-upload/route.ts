@@ -38,8 +38,11 @@ export async function POST(request: NextRequest) {
     const formData = await request.formData();
     const file = formData.get("file") as File | null;
     const title = formData.get("title") as string | null;
+    if (!title) {
+      return NextResponse.json({ error: "Title is required" }, { status: 400 });
+    }
     const description = formData.get("description") as string | null;
-    const originalFileSize = formData.get("originalFileSize") as string | null;
+    const originalSize = formData.get("originalSize") as string | null;
     if (!file) {
       return NextResponse.json({ error: "No file provided" }, { status: 400 });
     }
@@ -63,25 +66,21 @@ export async function POST(request: NextRequest) {
         uploadStream.end(buffer);
       }
     );
-      const videoData = await prisma.video.create({
-          data: {
-              title,
-              description,
-              publicID: result.public_id,
-              originalFileSize: originalFileSize,
-              compressedSize: String(result.bytes),
-              duration: result.duration || 0,
-          }
-      })
-      return NextResponse.json({
-        publicID: result.public_id,
-      }, {
-            status: 200,
-            headers: {
-                "Content-Type": "application/json",
-        );
+    const video = await prisma.video.create({
+      data: {
+        title,
+        description,
+        publicId: result.public_id,
+        originalSize: originalSize ?? "",
+        compressedSize: String(result.bytes),
+        duration: result.duration || 0,
+      },
+    });
+    return NextResponse.json(video);
   } catch (error) {
-    console.log("Upload image error:", error);
-    return NextResponse.json({ error: "Upload image failed" }, { status: 500 });
+    console.log("Upload video failed", error);
+    return NextResponse.json({ error: "Upload video failed" }, { status: 500 });
+  } finally {
+    await prisma.$disconnect();
   }
 }
