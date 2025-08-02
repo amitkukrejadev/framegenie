@@ -12,19 +12,19 @@ const isPublicApiRoute = createRouteMatcher(["/api/videos"]);
 
 export default clerkMiddleware(async (auth, req) => {
   const { userId } = await auth();
-  const currentUrl = new URL(req.url);
-  const isApiRequest = currentUrl.pathname.startsWith("/api");
-
   // Allow public API routes to proceed
   if (isPublicApiRoute(req)) {
     return NextResponse.next();
   }
 
-  // If not logged in
-  if (!userId) {
-    if (!isPublicRoute(req)) {
-      return NextResponse.redirect(new URL("/sign-in", req.url));
-    }
+  // If authenticated, allow access to all routes
+  if (userId) {
+    return NextResponse.next();
+  }
+
+  // If not authenticated, redirect only non-public routes
+  if (!userId && !isPublicRoute(req)) {
+    return NextResponse.redirect(new URL("/sign-in", req.url));
   }
 
   return NextResponse.next();
