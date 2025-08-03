@@ -130,8 +130,8 @@ const VideoUploadPage: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="bg-base-200 dark:bg-dark-card-primary p-8 rounded-2xl shadow-2xl space-y-8">
-          <h1 className="text-3xl font-bold text-center text-base-content dark:text-white">
+        <div className="bg-dark-card-primary p-8 rounded-2xl shadow-2xl space-y-8">
+          <h1 className="text-3xl font-bold text-center text-text-primary">
             Upload Video
           </h1>
 
@@ -142,7 +142,7 @@ const VideoUploadPage: React.FC = () => {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Title"
-                className="w-full px-4 py-2 border rounded-xl bg-gray-100 dark:bg-[#2a2a2a] border-gray-600 focus:ring focus:ring-blue-400"
+                className="w-full px-4 py-2 border rounded-xl bg-dark-input-bg border-border-default text-text-primary focus:ring focus:ring-blue-400"
                 required
                 aria-label="Video title"
               />
@@ -151,7 +151,7 @@ const VideoUploadPage: React.FC = () => {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Description"
-                className="w-full px-4 py-2 border rounded-xl bg-gray-100 dark:bg-[#2a2a2a] border-gray-600 resize-none focus:ring focus:ring-blue-400"
+                className="w-full px-4 py-2 border rounded-xl bg-dark-input-bg border-border-default text-text-primary resize-none focus:ring focus:ring-blue-400"
                 required
                 aria-label="Video description"
               />
@@ -176,7 +176,7 @@ const VideoUploadPage: React.FC = () => {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="text-sm opacity-60 text-center">
+                  <p className="text-sm opacity-60 text-center text-text-secondary">
                     <strong>{file.name}</strong> -{" "}
                     {(file.size / (1024 * 1024)).toFixed(2)} MB
                   </p>
@@ -198,8 +198,10 @@ const VideoUploadPage: React.FC = () => {
 
               {isUploading && (
                 <div>
-                  <p className="text-sm text-center">{uploadProgress}%</p>
-                  <div className="w-full bg-gray-300 rounded-full h-2 dark:bg-gray-600">
+                  <p className="text-sm text-center text-text-secondary">
+                    {uploadProgress}%
+                  </p>
+                  <div className="w-full bg-dark-bg-secondary rounded-full h-2">
                     <div
                       className="bg-blue-500 h-2 rounded-full transition-all duration-200"
                       style={{ width: `${uploadProgress}%` }}
@@ -241,7 +243,9 @@ const VideoUploadPage: React.FC = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-lg font-semibold">Upload Complete!</h2>
+              <h2 className="text-lg font-semibold text-text-primary">
+                Upload Complete!
+              </h2>
               <video
                 src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/video/upload/${videoInfo.publicId}.mp4`}
                 controls
@@ -249,7 +253,7 @@ const VideoUploadPage: React.FC = () => {
                 disablePictureInPicture
                 className="w-full rounded-xl border"
               />
-              <p className="text-sm opacity-70">
+              <p className="text-sm opacity-70 text-text-secondary">
                 Compressed Size:{" "}
                 {(parseInt(videoInfo.compressedSize) / (1024 * 1024)).toFixed(
                   2

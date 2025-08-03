@@ -112,8 +112,8 @@ const VideoThumbnailPage: React.FC = () => {
         transition={{ duration: 0.5 }}
       >
         <div className="bg-base-200 dark:bg-dark-card-primary p-8 rounded-2xl shadow-2xl space-y-8">
-          <h1 className="text-3xl font-bold text-center text-base-content dark:text-white">
-            Video Thumbnail Generator 🎬
+          <h1 className="text-3xl font-bold text-center text-base-content">
+            Video Thumbnail Generator
           </h1>
 
           <div>
@@ -125,7 +125,7 @@ const VideoThumbnailPage: React.FC = () => {
               id="videoFile"
               accept="video/mp4,video/webm,video/ogg"
               onChange={(e) => setVideo(e.target.files?.[0] || null)}
-              className="block w-full text-sm file:text-white file:mr-4 file:py-3 file:px-6 file:rounded-lg file:border-0 file:bg-blue-500 file:hover:bg-blue-700 dark:file:bg-blue-500 dark:file:hover:bg-blue-600 bg-gray-300 text-black rounded-lg border border-gray-600 cursor-pointer focus:outline-none"
+              className="block w-full text-sm file:text-white file:mr-4 file:py-3 file:px-6 file:rounded-lg file:border-0 file:bg-blue-500 file:hover:bg-blue-700 dark:file:bg-blue-500 dark:file:hover:bg-blue-600 bg-gray-200 text-black rounded-lg border border-gray-600 cursor-pointer focus:outline-none"
               aria-describedby="video-error"
             />
           </div>
@@ -142,12 +142,14 @@ const VideoThumbnailPage: React.FC = () => {
               onClick={handleGenerate}
               className={`w-full px-6 py-3 rounded-lg font-semibold transition-all duration-200 
                 ${
-                  loading
-                    ? "bg-blue-500/60 cursor-wait text-white animate-pulse"
+                  !video || loading
+                    ? "bg-blue-500/60 cursor-not-allowed text-white"
+                    : loading
+                    ? "bg-blue-500/60 cursor-not-allowed text-white animate-pulse"
                     : "bg-blue-500 hover:bg-blue-600 text-white hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
                 } 
-                disabled:opacity-50 disabled:cursor-not-allowed`}
-              disabled={loading}
+                disabled:opacity-50`}
+              disabled={!video || loading}
               aria-busy={loading}
               aria-label="Generate thumbnail"
             >

@@ -112,8 +112,8 @@ const BackgroundRemovalPage: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="bg-base-200 dark:bg-dark-card-primary p-8 rounded-2xl shadow-2xl space-y-8">
-          <h1 className="text-3xl font-bold text-center text-base-content dark:text-white">
+        <div className="bg-dark-card-primary p-8 rounded-2xl shadow-2xl space-y-8">
+          <h1 className="text-3xl font-bold text-center text-text-primary">
             Background Removal
           </h1>
 
@@ -131,13 +131,13 @@ const BackgroundRemovalPage: React.FC = () => {
                 setResultUrl("");
                 setPreviewUrl(selected ? URL.createObjectURL(selected) : "");
               }}
-              className="block w-full text-sm file:text-white file:mr-4 file:py-3 file:px-6 file:rounded-lg file:border-0 file:bg-blue-500 file:hover:bg-blue-700 dark:file:bg-blue-500 dark:file:hover:bg-blue-600 bg-gray-300 text-black rounded-lg border border-gray-600 cursor-pointer focus:outline-none"
+              className="block w-full text-sm file:text-white file:mr-4 file:py-3 file:px-6 file:rounded-lg file:border-0 file:bg-blue-500 file:hover:bg-blue-700 dark:file:bg-blue-500 dark:file:hover:bg-blue-600 bg-gray-200 text-black rounded-lg border border-gray-600 cursor-pointer focus:outline-none"
               aria-describedby="image-error"
             />
           </div>
 
           {file && (
-            <p className="text-sm opacity-60 text-center">
+            <p className="text-sm opacity-60 text-center text-text-secondary">
               <strong>{file.name}</strong> -{" "}
               {(file.size / (1024 * 1024)).toFixed(2)} MB
             </p>
@@ -182,7 +182,9 @@ const BackgroundRemovalPage: React.FC = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-lg font-semibold">Selected Image:</h2>
+              <h2 className="text-lg font-semibold text-text-primary">
+                Selected Image:
+              </h2>
               <Image
                 src={previewUrl}
                 alt="Preview"
@@ -200,7 +202,9 @@ const BackgroundRemovalPage: React.FC = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-lg font-semibold">Result:</h2>
+              <h2 className="text-lg font-semibold text-text-primary">
+                Result:
+              </h2>
               <Image
                 src={resultUrl}
                 alt="Background Removed"

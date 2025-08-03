@@ -213,7 +213,7 @@ const SocialShare: React.FC = () => {
                 id="imageFile"
                 accept="image/jpeg,image/png,image/webp"
                 onChange={handleFileUpload}
-                className="block w-full text-sm file:text-white file:mr-4 file:py-3 file:px-6 file:rounded-lg file:border-0 file:bg-blue-500 file:hover:bg-blue-700 dark:file:bg-blue-500 dark:file:hover:bg-blue-600 bg-gray-300 text-black rounded-lg border border-gray-600 cursor-pointer focus:outline-none"
+                className="block w-full text-sm file:text-white file:mr-4 file:py-3 file:px-6 file:rounded-lg file:border-0 file:bg-blue-500 file:hover:bg-blue-700 dark:file:bg-blue-500 dark:file:hover:bg-blue-600 bg-gray-200 text-black rounded-lg border border-gray-600 cursor-pointer focus:outline-none"
                 aria-describedby="image-error"
               />
             </div>
@@ -233,7 +233,7 @@ const SocialShare: React.FC = () => {
             {uploadedImage && (
               <>
                 <select
-                  className="w-full px-4 py-2 bg-gray-100 dark:bg-[#2a2a2a] border border-gray-600 rounded-xl focus:ring focus:ring-blue-400"
+                  className="w-full px-4 py-2 bg-gray-200 border border-gray-600 rounded-xl focus:ring focus:ring-blue-400"
                   value={selectedFormat}
                   onChange={(e) =>
                     setSelectedFormat(e.target.value as SocialFormat)

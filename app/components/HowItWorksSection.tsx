@@ -26,7 +26,7 @@ const steps = [
 
 export default function HowItWorksSection() {
   return (
-    <section className="px-6 py-16 bg-base-200 dark:bg-dark-bg-secondary text-base-content dark:text-text-primary transition-colors duration-300">
+    <section className="px-6 py-4 bg-base-200 dark:bg-dark-bg-secondary text-base-content dark:text-text-primary transition-colors duration-300">
       <div className="max-w-6xl mx-auto text-center space-y-10">
         <h2 className="text-3xl font-bold">How It Works</h2>
         <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-10">
