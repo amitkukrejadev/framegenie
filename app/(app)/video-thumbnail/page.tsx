@@ -111,8 +111,8 @@ const VideoThumbnailPage: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="bg-base-200 dark:bg-dark-card-primary p-8 rounded-2xl shadow-2xl space-y-8">
-          <h1 className="text-3xl font-bold text-center text-base-content">
+        <div className="bg-gray-800 p-8 rounded-2xl shadow-2xl space-y-8">
+          <h1 className="text-3xl font-bold text-center text-white">
             Video Thumbnail Generator
           </h1>
 
@@ -131,7 +131,7 @@ const VideoThumbnailPage: React.FC = () => {
           </div>
 
           {video && (
-            <p className="text-sm opacity-60 text-center">
+            <p className="text-sm opacity-60 text-center text-gray-300">
               <strong>{video.name}</strong> -{" "}
               {(video.size / (1024 * 1024)).toFixed(2)} MB
             </p>
@@ -178,7 +178,9 @@ const VideoThumbnailPage: React.FC = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-lg font-semibold">Generated Thumbnail:</h2>
+              <h2 className="text-lg font-semibold text-white">
+                Generated Thumbnail:
+              </h2>
               <Image
                 src={thumbnailUrl}
                 alt="Generated video thumbnail"
