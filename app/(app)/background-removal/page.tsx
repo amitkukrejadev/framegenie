@@ -112,8 +112,8 @@ const BackgroundRemovalPage: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="bg-dark-card-primary p-8 rounded-2xl shadow-2xl space-y-8">
-          <h1 className="text-3xl font-bold text-center text-text-primary">
+        <div className="bg-gray-800 p-8 rounded-2xl shadow-2xl space-y-8">
+          <h1 className="text-3xl font-bold text-center text-white">
             Background Removal
           </h1>
 
@@ -137,7 +137,7 @@ const BackgroundRemovalPage: React.FC = () => {
           </div>
 
           {file && (
-            <p className="text-sm opacity-60 text-center text-text-secondary">
+            <p className="text-sm opacity-60 text-center text-gray-300">
               <strong>{file.name}</strong> -{" "}
               {(file.size / (1024 * 1024)).toFixed(2)} MB
             </p>
@@ -182,7 +182,7 @@ const BackgroundRemovalPage: React.FC = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-lg font-semibold text-text-primary">
+              <h2 className="text-lg font-semibold text-white">
                 Selected Image:
               </h2>
               <Image
@@ -202,9 +202,7 @@ const BackgroundRemovalPage: React.FC = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-lg font-semibold text-text-primary">
-                Result:
-              </h2>
+              <h2 className="text-lg font-semibold text-white">Result:</h2>
               <Image
                 src={resultUrl}
                 alt="Background Removed"
