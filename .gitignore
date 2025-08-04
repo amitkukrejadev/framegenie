@@ -63,4 +63,4 @@ prisma/.env
 # Remove any generated Prisma client (if you generate to a custom path)
 /app/generated/prisma
 
-# Remove duplicate or unnecessary entries above
+# Remove duplicate or unnecessary entries abovefolder_structure.txt

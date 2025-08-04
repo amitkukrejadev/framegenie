@@ -1,0 +1,8 @@
+.
+├── android-chrome-512x512.png
+├── apple-touch-icon.png
+├── favicon.png
+├── folder_structure.txt
+└── site.webmanifest
+
+1 directory, 5 files

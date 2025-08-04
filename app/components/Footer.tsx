@@ -5,9 +5,8 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="px-6 py-8 bg-base-300 dark:bg-dark-bg-primary text-base-content dark:text-gray-400 text-center transition-colors duration-300">
+    <footer className="px-6 py-8 bg-[oklch(0.4_0.013807_253.101)] text-gray-300 text-center transition-colors duration-300">
       <div className="max-w-4xl mx-auto space-y-3">
-        {/* Link Navigation */}
         <div className="flex flex-wrap justify-center gap-4 text-sm font-medium">
           <Link href="/" className="hover:underline">
             Home
@@ -28,8 +27,6 @@ export default function Footer() {
             Help
           </Link>
         </div>
-
-        {/* Footer Text */}
         <p className="text-xs opacity-70">
           © {new Date().getFullYear()} FrameGenie. All rights reserved.
         </p>
