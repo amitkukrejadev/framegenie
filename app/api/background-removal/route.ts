@@ -12,7 +12,7 @@ cloudinary.config({
 interface CloudinaryUploadResult {
   public_id: string;
   url: string;
-  [key: string]: any;
+  [key: string]: unknown; // Changed from any to unknown
 }
 
 export async function POST(request: NextRequest) {
@@ -75,8 +75,8 @@ export async function POST(request: NextRequest) {
       { publicId: result.public_id, url: result.url },
       { status: 200 }
     );
-  } catch (error) {
-    console.error("Background removal failed:", error);
+  } catch (err) {
+    console.error("Background removal failed:", err);
     return NextResponse.json(
       { error: "Failed to remove background" },
       { status: 500 }

@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-
 import { v2 as cloudinary } from "cloudinary";
 import { auth } from "@clerk/nextjs/server";
 
@@ -11,7 +10,7 @@ cloudinary.config({
 
 interface CloudinaryUploadResult {
   public_id: string;
-  [key: string]: any; // Allow additional properties
+  [key: string]: unknown; // Changed from any to unknown
 }
 
 export async function POST(request: NextRequest) {
@@ -52,8 +51,8 @@ export async function POST(request: NextRequest) {
         status: 200,
       }
     );
-  } catch (error) {
-    console.log("Upload image error:", error);
+  } catch (err) {
+    console.log("Upload image error:", err);
     return NextResponse.json({ error: "Upload image failed" }, { status: 500 });
   }
 }
