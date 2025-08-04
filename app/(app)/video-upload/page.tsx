@@ -130,8 +130,8 @@ const VideoUploadPage: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="bg-dark-card-primary p-8 rounded-2xl shadow-2xl space-y-8">
-          <h1 className="text-3xl font-bold text-center text-text-primary">
+        <div className="bg-gray-800 p-8 rounded-2xl shadow-2xl space-y-8">
+          <h1 className="text-3xl font-bold text-center text-white">
             Upload Video
           </h1>
 
@@ -142,7 +142,7 @@ const VideoUploadPage: React.FC = () => {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Title"
-                className="w-full px-4 py-2 border rounded-xl bg-dark-input-bg border-border-default text-text-primary focus:ring focus:ring-blue-400"
+                className="w-full px-4 py-2 border rounded-xl bg-gray-700 border-gray-600 text-white focus:ring focus:ring-blue-400"
                 required
                 aria-label="Video title"
               />
@@ -151,7 +151,7 @@ const VideoUploadPage: React.FC = () => {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Description"
-                className="w-full px-4 py-2 border rounded-xl bg-dark-input-bg border-border-default text-text-primary resize-none focus:ring focus:ring-blue-400"
+                className="w-full px-4 py-2 border rounded-xl bg-gray-700 border-gray-600 text-white resize-none focus:ring focus:ring-blue-400"
                 required
                 aria-label="Video description"
               />
@@ -164,7 +164,7 @@ const VideoUploadPage: React.FC = () => {
                   id="videoFile"
                   accept="video/mp4,video/quicktime"
                   onChange={(e) => setFile(e.target.files?.[0] || null)}
-                  className="block w-full text-sm file:text-white file:mr-4 file:py-3 file:px-6 file:rounded-lg file:border-0 file:bg-blue-500 file:hover:bg-blue-700 dark:file:bg-blue-500 dark:file:hover:bg-blue-600 bg-gray-300 text-black rounded-lg border border-gray-600 cursor-pointer focus:outline-none"
+                  className="block w-full text-sm file:text-white file:mr-4 file:py-3 file:px-6 file:rounded-lg file:border-0 file:bg-blue-500 file:hover:bg-blue-700 dark:file:bg-blue-500 dark:file:hover:bg-blue-600 bg-gray-200 text-black rounded-lg border border-gray-600 cursor-pointer focus:outline-none"
                   aria-describedby="video-error"
                 />
               </div>
@@ -176,7 +176,7 @@ const VideoUploadPage: React.FC = () => {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="text-sm opacity-60 text-center text-text-secondary">
+                  <p className="text-sm opacity-60 text-center text-gray-300">
                     <strong>{file.name}</strong> -{" "}
                     {(file.size / (1024 * 1024)).toFixed(2)} MB
                   </p>
@@ -198,10 +198,10 @@ const VideoUploadPage: React.FC = () => {
 
               {isUploading && (
                 <div>
-                  <p className="text-sm text-center text-text-secondary">
+                  <p className="text-sm text-center text-gray-300">
                     {uploadProgress}%
                   </p>
-                  <div className="w-full bg-dark-bg-secondary rounded-full h-2">
+                  <div className="w-full bg-gray-700 rounded-full h-2">
                     <div
                       className="bg-blue-500 h-2 rounded-full transition-all duration-200"
                       style={{ width: `${uploadProgress}%` }}
@@ -243,7 +243,7 @@ const VideoUploadPage: React.FC = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-lg font-semibold text-text-primary">
+              <h2 className="text-lg font-semibold text-white">
                 Upload Complete!
               </h2>
               <video
@@ -253,7 +253,7 @@ const VideoUploadPage: React.FC = () => {
                 disablePictureInPicture
                 className="w-full rounded-xl border"
               />
-              <p className="text-sm opacity-70 text-text-secondary">
+              <p className="text-sm opacity-70 text-gray-300">
                 Compressed Size:{" "}
                 {(parseInt(videoInfo.compressedSize) / (1024 * 1024)).toFixed(
                   2
