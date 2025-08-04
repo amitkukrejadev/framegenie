@@ -198,8 +198,8 @@ const SocialShare: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="bg-base-200 dark:bg-dark-card-primary p-8 rounded-2xl shadow-2xl space-y-8">
-          <h1 className="text-3xl font-bold text-center text-base-content dark:text-white">
+        <div className="bg-gray-800 p-8 rounded-2xl shadow-2xl space-y-8">
+          <h1 className="text-3xl font-bold text-center text-white">
             Social Media Image Creator
           </h1>
 
