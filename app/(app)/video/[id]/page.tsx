@@ -7,9 +7,10 @@ type Params = {
   id: string;
 };
 
-export default async function Page({ params }: { params: Params }) {
+export default async function Page({ params }: { params: Promise<Params> }) {
+  const resolvedParams = await params; // Resolve the Promise
   const video = await prisma.video.findUnique({
-    where: { id: params.id },
+    where: { id: resolvedParams.id },
   });
 
   if (!video) {
