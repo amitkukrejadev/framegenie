@@ -98,17 +98,23 @@ export default function DashboardLayout({
   return (
     <div className="min-h-screen font-sans text-gray-300 bg-[oklch(0.4_0.013807_253.101)]">
       <header className="flex items-center justify-between px-6 py-4 bg-gray-700 bg-opacity-80 shadow-md">
-        <div className="flex items-center gap-4">
-          <Image
-            src="/favicon.png"
-            alt="FrameGenie Logo"
-            width={80}
-            height={80}
-            className="object-contain"
-          />
-          <h2 className="text-xl font-semibold text-white cursor-pointer hover:opacity-80">
-            FRAMEGENIE
-          </h2>
+        <div className="flex flex-col md:flex-row md:items-center md:gap-6 items-center text-center">
+          {" "}
+          <Link
+            href="/"
+            className="flex items-center justify-center gap-2 w-full md:w-auto hover:opacity-80"
+          >
+            <Image
+              src="/favicon.png"
+              alt="FrameGenie Logo"
+              width={80}
+              height={80}
+              className="object-contain"
+            />
+            <h2 className="text-xl font-semibold text-white cursor-pointer hover:opacity-80">
+              FRAMEGENIE
+            </h2>
+          </Link>
           <nav className="hidden md:flex gap-3">
             {menuLinks.map(({ href, label }) => (
               <motion.div
