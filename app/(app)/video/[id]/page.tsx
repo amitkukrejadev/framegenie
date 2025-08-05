@@ -1,15 +1,13 @@
 import { PrismaClient } from "@prisma/client";
-import type { NextPage } from "next"; // Import Next.js page typing
 import React from "react";
 
 const prisma = new PrismaClient();
 
-// Define the params type explicitly for the dynamic route
 type Params = {
   id: string;
 };
 
-const Page: NextPage<{ params: Params }> = async ({ params }) => {
+export default async function Page({ params }: { params: Params }) {
   const video = await prisma.video.findUnique({
     where: { id: params.id },
   });
@@ -42,6 +40,4 @@ const Page: NextPage<{ params: Params }> = async ({ params }) => {
       </div>
     </div>
   );
-};
-
-export default Page;
+}
