@@ -2,11 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 import { v2 as cloudinary } from "cloudinary";
 
-// ✅ Correct server-side environment variable usage
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
+  secure: true,
 });
 
 interface CloudinaryUploadResult {
@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
     );
 
     return NextResponse.json(
-      { publicId: result.public_id, url: result.url },
+      { publicId: result.public_id, url: result.secure_url },
       { status: 200 }
     );
   } catch (err) {
