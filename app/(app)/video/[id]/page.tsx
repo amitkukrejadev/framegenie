@@ -1,10 +1,15 @@
-// app/video/[id]/page.tsx
 import { PrismaClient } from "@prisma/client";
+import type { NextPage } from "next"; // Import Next.js page typing
 import React from "react";
 
 const prisma = new PrismaClient();
 
-export default async function Page({ params }: { params: { id: string } }) {
+// Define the params type explicitly for the dynamic route
+type Params = {
+  id: string;
+};
+
+const Page: NextPage<{ params: Params }> = async ({ params }) => {
   const video = await prisma.video.findUnique({
     where: { id: params.id },
   });
@@ -26,13 +31,17 @@ export default async function Page({ params }: { params: { id: string } }) {
       />
       <div className="mt-4 text-sm text-gray-400">
         <p>
-          Original Size: {parseFloat(video.originalSize) / (1024 * 1024)} MB
+          Original Size:{" "}
+          {(parseFloat(video.originalSize) / (1024 * 1024)).toFixed(2)} MB
         </p>
         <p>
-          Compressed Size: {parseFloat(video.compressedSize) / (1024 * 1024)} MB
+          Compressed Size:{" "}
+          {(parseFloat(video.compressedSize) / (1024 * 1024)).toFixed(2)} MB
         </p>
         <p>Duration: {video.duration.toFixed(2)} seconds</p>
       </div>
     </div>
   );
-}
+};
+
+export default Page;
