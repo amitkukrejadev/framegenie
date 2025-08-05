@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useClerk, useUser } from "@clerk/nextjs";
 import { usePathname, useRouter } from "next/navigation";
 import { FiLogOut, FiMenu } from "react-icons/fi";
-import { MdOutlineEmail } from "react-icons/md";
 import { User2 } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -34,12 +33,18 @@ export default function DashboardLayout({
     if (!isLoaded) return <div className="text-gray-300">Loading...</div>;
     if (!isSignedIn || !user) {
       return (
-        <Link
-          href="/sign-in"
-          className="flex items-center gap-2 text-sm text-gray-300 hover:text-white"
-        >
-          <MdOutlineEmail className="text-lg" /> Not signed in
-        </Link>
+        <div className="hidden md:flex gap-3">
+          <Link href="/sign-in">
+            <button className="px-4 py-2 text-sm font-semibold rounded-lg bg-blue-600 text-white hover:bg-blue-700">
+              Sign In
+            </button>
+          </Link>
+          <Link href="/sign-up">
+            <button className="px-4 py-2 text-sm font-semibold rounded-lg bg-green-600 text-white hover:bg-green-700">
+              Sign Up
+            </button>
+          </Link>
+        </div>
       );
     }
     return (
@@ -161,10 +166,35 @@ export default function DashboardLayout({
               </button>
             </Link>
           ))}
-          {isSignedIn && user && (
+          {!isSignedIn && (
             <>
               <div className="border-t border-gray-600 pt-2 mt-4">
                 <h2 className="text-sm font-medium text-white mb-2">Account</h2>
+              </div>
+              <Link href="/sign-in">
+                <button
+                  onClick={() => setMenuOpen(false)}
+                  className="w-full text-left px-4 py-2 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700"
+                >
+                  Sign In
+                </button>
+              </Link>
+              <Link href="/sign-up">
+                <button
+                  onClick={() => setMenuOpen(false)}
+                  className="w-full text-left px-4 py-2 rounded-lg text-sm font-semibold text-white bg-green-600 hover:bg-green-700"
+                >
+                  Sign Up
+                </button>
+              </Link>
+            </>
+          )}
+          {isSignedIn && user && (
+            <>
+              <div className="border-t border-gray-600 pt-2 mt-4">
+                <h2 className="text-sm font-medium text-white mb-2">
+                  Account: {user.firstName} {user.lastName || ""}
+                </h2>
               </div>
               <Link href="/profile">
                 <button
