@@ -1,8 +1,3 @@
-Here’s your updated README.md content in professional Markdown format, tailored for a deployed and complete project:
-
-⸻
-
-
 # FrameGenie 🎬 – AI-Powered Movie Poster Generator
 
 FrameGenie is a modern, full-stack SaaS application that allows users to generate AI-powered movie posters with prompts. Built using **Next.js 14 (App Router)**, **Tailwind CSS**, **Prisma**, **PostgreSQL**, **Clerk Auth**, and **Cloudinary**.
