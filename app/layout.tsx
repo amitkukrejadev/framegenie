@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Analytics } from "@vercel/analytics/next";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     "Edit videos like a pro with FrameGenie – upload, share, and enhance with ease.",
   icons: {
     icon: [
-      { url: "/favicon.ico" }, // Primary fallback
+      { url: "/favicon.ico" },
       { url: "/android-chrome-512x512.png", type: "image/png" }, // Modern icon
     ],
     apple: "/android-chrome-512x512.png", // Apple Touch Icon
@@ -62,6 +63,7 @@ export default function RootLayout({
           className={`${poppins.variable} antialiased bg-[oklch(0.4_0.013807_253.101)] text-white`}
         >
           {children}
+          <Analytics /> {/* Render Analytics component here */}
         </body>
       </html>
     </ClerkProvider>
