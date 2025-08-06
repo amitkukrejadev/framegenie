@@ -2,6 +2,7 @@
 
 import React from "react";
 import DashboardLayout from "@/app/components/DashboardLayout";
+import Footer from "@/app/components/Footer";
 
 export default function AboutPage() {
   return (
@@ -20,6 +21,9 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
+      <footer className="w-full px-4 py-8 bg-[oklch(0.4_0.013807_253.101)]">
+        <Footer />
+      </footer>
     </DashboardLayout>
   );
 }

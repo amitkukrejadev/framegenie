@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 import { z } from "zod";
 import DashboardLayout from "@/app/components/DashboardLayout";
+import Footer from "@/app/components/Footer";
 
 // Define API response schema with Zod
 const ImageUploadResponseSchema = z.object({
@@ -309,6 +310,9 @@ const SocialShare: React.FC = () => {
           </div>
         </div>
       </motion.div>
+      <footer className="w-full px-4 py-8 bg-[oklch(0.4_0.013807_253.101)]">
+        <Footer />
+      </footer>
     </DashboardLayout>
   );
 };

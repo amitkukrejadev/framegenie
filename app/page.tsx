@@ -57,7 +57,6 @@ export default function HomePage() {
         <HomeExtras />
       </section>
 
-      {/* FOOTER */}
       <footer className="w-full px-4 py-8 bg-[oklch(0.4_0.013807_253.101)]">
         <Footer />
       </footer>

@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 import DashboardLayout from "@/app/components/DashboardLayout";
 import { z } from "zod";
+import Footer from "@/app/components/Footer";
+
 
 // Define API response schema with Zod
 const BackgroundRemovalResponseSchema = z.object({
@@ -221,6 +223,9 @@ const BackgroundRemovalPage: React.FC = () => {
           )}
         </div>
       </motion.div>
+      <footer className="w-full px-4 py-8 bg-[oklch(0.4_0.013807_253.101)]">
+        <Footer />
+      </footer>
     </DashboardLayout>
   );
 };

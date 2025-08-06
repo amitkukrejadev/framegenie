@@ -48,7 +48,7 @@ export default function DashboardLayout({
       );
     }
     return (
-      <div className="flex items-center gap-2 text-sm relative cursor-pointer">
+      <div className="flex items-center gap-2 text-sm relative cursor-pointer md:flex">
         <div
           onClick={() => setDropdownOpen(!dropdownOpen)}
           className="flex items-center gap-2 hover:opacity-80 md:cursor-pointer"
@@ -60,7 +60,7 @@ export default function DashboardLayout({
             height={32}
             className="rounded-full"
           />
-          <span className="text-white font-medium hidden md:inline">
+          <span className="text-white font-medium">
             {user.firstName} {user.lastName || ""}
           </span>
         </div>
@@ -70,7 +70,7 @@ export default function DashboardLayout({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="absolute right-0 top-16 mt-2 w-32 bg-gray-800 border border-gray-700 rounded-lg shadow-md z-50 min-h-[80px] md:block hidden"
+            className="absolute right-0 top-16 mt-2 w-32 bg-gray-800 border border-gray-700 rounded-lg shadow-md z-50 min-h-[80px]"
           >
             <Link
               href="/profile"
@@ -98,24 +98,23 @@ export default function DashboardLayout({
   return (
     <div className="min-h-screen font-sans text-gray-300 bg-[oklch(0.4_0.013807_253.101)]">
       <header className="flex items-center justify-between px-6 py-4 bg-gray-700 bg-opacity-80 shadow-md">
-        <div className="flex flex-col md:flex-row md:items-center md:gap-6 items-center text-center">
-          {" "}
+        <div className="flex flex-col md:flex-row md:items-center md:gap-6 w-full">
           <Link
             href="/"
-            className="flex items-center justify-center gap-2 w-full md:w-auto hover:opacity-80"
+            className="flex items-center gap-2 md:w-auto hover:opacity-80"
           >
             <Image
-              src="/favicon.png"
+              src="/android-chrome-512x512.png"
               alt="FrameGenie Logo"
-              width={80}
-              height={80}
+              width={85}
+              height={85}
               className="object-contain"
             />
-            <h2 className="text-xl font-semibold text-white cursor-pointer hover:opacity-80">
+            <h2 className="text-xl font-semibold text-white cursor-pointer hover:opacity-80 md:inline-block hidden md:mr-4">
               FRAMEGENIE
             </h2>
           </Link>
-          <nav className="hidden md:flex gap-3">
+          <nav className="hidden md:flex gap-3 flex-grow justify-start">
             {menuLinks.map(({ href, label }) => (
               <motion.div
                 key={href}
@@ -138,15 +137,25 @@ export default function DashboardLayout({
             ))}
           </nav>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center justify-between w-full md:hidden px-4">
+          <Link href="/" className="p-2">
+          </Link>
+          <div className="absolute left-1/2 transform -translate-x-1/2">
+            <Link
+              href="/"
+              className="text-xl font-semibold text-white cursor-pointer hover:opacity-80"
+            >
+              FRAMEGENIE
+            </Link>
+          </div>
           <button
-            className="md:hidden text-xl text-white"
+            className="text-xl text-white"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             <FiMenu />
           </button>
-          {renderUserInfo()}
         </div>
+        <div className="hidden md:block">{renderUserInfo()}</div>
       </header>
       {menuOpen && (
         <motion.nav

@@ -3,6 +3,8 @@
 
 import React from "react";
 import DashboardLayout from "@/app/components/DashboardLayout";
+import Footer from "@/app/components/Footer";
+
 
 const faqs = [
   {
@@ -40,6 +42,9 @@ export default function HelpPage() {
           ))}
         </div>
       </div>
+      <footer className="w-full px-4 py-8 bg-[oklch(0.4_0.013807_253.101)]">
+        <Footer />
+      </footer>
     </DashboardLayout>
   );
 }
