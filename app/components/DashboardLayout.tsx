@@ -33,14 +33,14 @@ export default function DashboardLayout({
     if (!isLoaded) return <div className="text-gray-300">Loading...</div>;
     if (!isSignedIn || !user) {
       return (
-        <div className="hidden md:flex gap-3">
+        <div className="hidden md:flex gap-3 items-center">
           <Link href="/sign-in">
-            <button className="px-4 py-2 text-sm font-semibold rounded-lg bg-blue-600 text-white hover:bg-blue-700">
+            <button className="px-4 py-2 text-sm font-semibold rounded-lg bg-blue-600 text-white hover:bg-blue-700 whitespace-nowrap">
               Sign In
             </button>
           </Link>
           <Link href="/sign-up">
-            <button className="px-4 py-2 text-sm font-semibold rounded-lg bg-green-600 text-white hover:bg-green-700">
+            <button className="px-4 py-2 text-sm font-semibold rounded-lg bg-green-600 text-white hover:bg-green-700 whitespace-nowrap">
               Sign Up
             </button>
           </Link>
@@ -138,8 +138,7 @@ export default function DashboardLayout({
           </nav>
         </div>
         <div className="flex items-center justify-between w-full md:hidden px-4">
-          <Link href="/" className="p-2">
-          </Link>
+          <Link href="/" className="p-2"></Link>
           <div className="absolute left-1/2 transform -translate-x-1/2">
             <Link
               href="/"
