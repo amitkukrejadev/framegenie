@@ -8,19 +8,22 @@
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "favicon.png",
-      "sizes": "32x32",
-      "type": "image/png"
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon",
+      "purpose": "any"
     },
     {
-      "src": "android-chrome-512x512.png",
+      "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "apple-touch-icon.png",
+      "src": "/apple-touch-icon.png",
       "sizes": "180x180",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "apple touch icon"
     }
   ]
 }
