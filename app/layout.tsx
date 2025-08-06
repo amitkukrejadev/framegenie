@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     "Edit videos like a pro with FrameGenie – upload, share, and enhance with ease.",
   icons: {
     icon: [
-      { url: "/android-chrome-512x512.png", type: "image/png" }, // Primary icon
-      { url: "/favicon.png", sizes: "32x32", type: "image/png" }, // Fallback
+      { url: "/favicon.ico" }, // Primary fallback
+      { url: "/android-chrome-512x512.png", type: "image/png" }, // Modern icon
     ],
     apple: "/android-chrome-512x512.png", // Apple Touch Icon
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description:
       "Edit videos like a pro with FrameGenie – upload, share, and enhance with ease.",
     images: ["/android-chrome-512x512.png"],
-    url: "https://yourdomain.com", // Replace with your actual domain
+    url: "https://framegenie.vercel.app", // Updated to your deployed domain
     siteName: "FrameGenie",
   },
   twitter: {
@@ -48,8 +48,13 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <head>
-          <link rel="icon" href="/android-chrome-512x512.png" sizes="512x512" type="image/png" />
-          <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png" />
+          <link rel="icon" href="/favicon.ico" />
+          <link
+            rel="icon"
+            href="/android-chrome-512x512.png"
+            sizes="512x512"
+            type="image/png"
+          />
           <link rel="apple-touch-icon" href="/android-chrome-512x512.png" />
           <link rel="manifest" href="/site.webmanifest" />
         </head>

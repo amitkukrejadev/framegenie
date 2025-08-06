@@ -2,6 +2,7 @@
 
 FrameGenie is a modern, full-stack SaaS application that allows users to generate AI-powered movie posters with prompts. Built using **Next.js 14 (App Router)**, **Tailwind CSS**, **Prisma**, **PostgreSQL**, **Clerk Auth**, and **Cloudinary**.
 
+
 Live Demo: [https://framegenie.vercel.app](https://framegenie.vercel.app)
 
 ---
