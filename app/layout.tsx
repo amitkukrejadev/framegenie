@@ -17,10 +17,20 @@ export const metadata: Metadata = {
     "Edit videos like a pro with FrameGenie – upload, share, and enhance with ease.",
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/android-chrome-512x512.png", type: "image/png" }, // Modern icon
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      {
+        url: "/android-chrome-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: "/android-chrome-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
     ],
-    apple: "/android-chrome-512x512.png", // Apple Touch Icon
+    apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
   openGraph: {
@@ -28,7 +38,7 @@ export const metadata: Metadata = {
     description:
       "Edit videos like a pro with FrameGenie – upload, share, and enhance with ease.",
     images: ["/android-chrome-512x512.png"],
-    url: "https://framegenie.vercel.app", // Updated to your deployed domain
+    url: "https://framegenie.vercel.app",
     siteName: "FrameGenie",
   },
   twitter: {
@@ -49,21 +59,38 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <head>
-          <link rel="icon" href="/favicon.ico" />
+          <link
+            rel="icon"
+            href="/favicon-16x16.png"
+            sizes="16x16"
+            type="image/png"
+          />
+          <link
+            rel="icon"
+            href="/favicon-32x32.png"
+            sizes="32x32"
+            type="image/png"
+          />
+          <link
+            rel="icon"
+            href="/android-chrome-192x192.png"
+            sizes="192x192"
+            type="image/png"
+          />
           <link
             rel="icon"
             href="/android-chrome-512x512.png"
             sizes="512x512"
             type="image/png"
           />
-          <link rel="apple-touch-icon" href="/android-chrome-512x512.png" />
+          <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
           <link rel="manifest" href="/site.webmanifest" />
         </head>
         <body
           className={`${poppins.variable} antialiased bg-[oklch(0.4_0.013807_253.101)] text-white`}
         >
           {children}
-          <Analytics /> {/* Render Analytics component here */}
+          <Analytics />
         </body>
       </html>
     </ClerkProvider>
